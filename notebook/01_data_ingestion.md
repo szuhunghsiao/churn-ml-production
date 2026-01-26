@@ -11,10 +11,10 @@ Primary Key:
 - customerID  : unique 7043 value should be the primary key and unique for each row. There's no time related columns in the dataset
 
 Numeric:
-- SeniorCitizen (int) (Note: the original data info is int64, and only include 2 values ie, 0 and 1. Should concider as categorical)
-- tenure (int) (Note: original data info is int64, and include 73 unique values. Should concider as categorical)
+- SeniorCitizen (int) (Note: the original data info is int64, and only include 2 values ie, 0 and 1. Should concider as categorical. It is a binary indicator rather than a continuous numeric feature, and should be encoded accordingly without normalization.)
+- tenure (int) (Note: original data info is int64, and include 73 unique values. However, even the number of unique value is much lower than 7043 (row number), it should still concider as numeric)
 - MonthlyCharges (float)
-- TotalCharges (object) (Note: original object as String type, but need to convert to float. There's some missing data as value ' ' (blank space))
+- TotalCharges (object) (Note: original object as String type, but need to convert to float. There's some missing data as value ' ' (blank space). Missing values may correlate with short-tenure customers. This requires careful handling to avoid bias and will be addressed in data validation and feature engineering steps.)
 
 Categorical:  
 (Note 1: in multiple columns, they include "No internet servie" might have high relation with InternetService. Should investigate the correlation)  
@@ -97,78 +97,3 @@ Categorical:
  - SeniorCitizen 	:
 	 - 0: 5901, percentage: 0.84
 	 - 1: 1142, percentage: 0.16
-
- - tenure 	:
-	 - 1: 613, percentage: 0.09
-	 - 34: 65, percentage: 0.01
-	 - 2: 238, percentage: 0.03
-	 - 45: 61, percentage: 0.01
-	 - 8: 123, percentage: 0.02
-	 - 22: 90, percentage: 0.01
-	 - 10: 116, percentage: 0.02
-	 - 28: 57, percentage: 0.01
-	 - 62: 70, percentage: 0.01
-	 - 13: 109, percentage: 0.02
-	 - 16: 80, percentage: 0.01
-	 - 58: 67, percentage: 0.01
-	 - 49: 66, percentage: 0.01
-	 - 25: 79, percentage: 0.01
-	 - 69: 95, percentage: 0.01
-	 - 52: 80, percentage: 0.01
-	 - 71: 170, percentage: 0.02
-	 - 21: 63, percentage: 0.01
-	 - 12: 117, percentage: 0.02
-	 - 30: 72, percentage: 0.01
-	 - 47: 68, percentage: 0.01
-	 - 72: 362, percentage: 0.05
-	 - 17: 87, percentage: 0.01
-	 - 27: 72, percentage: 0.01
-	 - 5: 133, percentage: 0.02
-	 - 46: 74, percentage: 0.01
-	 - 11: 99, percentage: 0.01
-	 - 70: 119, percentage: 0.02
-	 - 63: 72, percentage: 0.01
-	 - 43: 65, percentage: 0.01
-	 - 15: 99, percentage: 0.01
-	 - 60: 76, percentage: 0.01
-	 - 18: 97, percentage: 0.01
-	 - 66: 89, percentage: 0.01
-	 - 9: 119, percentage: 0.02
-	 - 3: 200, percentage: 0.03
-	 - 31: 65, percentage: 0.01
-	 - 50: 68, percentage: 0.01
-	 - 64: 80, percentage: 0.01
-	 - 56: 80, percentage: 0.01
-	 - 7: 131, percentage: 0.02
-	 - 42: 65, percentage: 0.01
-	 - 35: 88, percentage: 0.01
-	 - 48: 64, percentage: 0.01
-	 - 29: 72, percentage: 0.01
-	 - 65: 76, percentage: 0.01
-	 - 38: 59, percentage: 0.01
-	 - 68: 100, percentage: 0.01
-	 - 32: 69, percentage: 0.01
-	 - 55: 64, percentage: 0.01
-	 - 37: 65, percentage: 0.01
-	 - 36: 50, percentage: 0.01
-	 - 41: 70, percentage: 0.01
-	 - 6: 110, percentage: 0.02
-	 - 4: 176, percentage: 0.02
-	 - 33: 64, percentage: 0.01
-	 - 67: 98, percentage: 0.01
-	 - 23: 85, percentage: 0.01
-	 - 57: 65, percentage: 0.01
-	 - 61: 76, percentage: 0.01
-	 - 14: 76, percentage: 0.01
-	 - 20: 71, percentage: 0.01
-	 - 53: 70, percentage: 0.01
-	 - 40: 64, percentage: 0.01
-	 - 59: 60, percentage: 0.01
-	 - 24: 94, percentage: 0.01
-	 - 44: 51, percentage: 0.01
-	 - 19: 73, percentage: 0.01
-	 - 54: 68, percentage: 0.01
-	 - 51: 68, percentage: 0.01
-	 - 26: 79, percentage: 0.01
-	 - 0: 11, percentage: 0.0
-	 - 39: 56, percentage: 0.01
